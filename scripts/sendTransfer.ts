@@ -10,7 +10,7 @@ export async function run(provider: NetworkProvider) {
   
 
     // Load wallet data
-    const walletData = JSON.parse(fs.readFileSync('.wallet3.json', 'utf-8'));
+    const walletData = JSON.parse(fs.readFileSync('.wallet.json', 'utf-8'));
     const mnemonic = walletData.mnemonic.split(' ');
     console.log('clave privada: ',mnemonic)
     const keyPair = await mnemonicToPrivateKey(mnemonic);
@@ -41,7 +41,7 @@ export async function run(provider: NetworkProvider) {
     });
 
     const createdAt = Math.floor(Date.now() / 1000) - 30; // 30 seconds ago
-    const queryId =  HighloadQueryId.fromSeqno(26n); // Use the next available query ID
+    const queryId =  HighloadQueryId.fromSeqno(17n); // Use the next available query ID
    
 
     
