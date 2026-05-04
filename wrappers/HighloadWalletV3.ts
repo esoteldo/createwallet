@@ -17,7 +17,7 @@ import {
 } from '@ton/core';
 // import { hex as CodeHex } from '../build/HighloadWalletV3.compiled.json';
 import {sign} from "@ton/crypto";
-import {OP} from "../tests/imports/const";
+import {OP} from "../src/constants";
 import {HighloadQueryId} from "./HighloadQuery";
 
 // export const HighloadWalletV3Code = Cell.fromBoc(Buffer.from(CodeHex, "hex"))[0]

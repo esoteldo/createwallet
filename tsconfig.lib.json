@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "dist",
+        "declaration": true,
+        "rootDir": "."
+    },
+    "include": [
+        "src/**/*.ts",
+        "wrappers/HighloadWalletV3.ts",
+        "wrappers/HighloadQuery.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build",
+        "scripts",
+        "tests"
+    ]
+}
