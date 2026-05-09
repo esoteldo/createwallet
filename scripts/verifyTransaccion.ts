@@ -1,21 +1,20 @@
 /**
  * Verifica si un payout (queryId+createdAt) fue procesado on-chain.
  *
- * Wrapper fino sobre src/verify. Toma inputs por env vars.
+ * Wrapper fino sobre src/verify. NO usa Blueprint (es standalone).
  *
- * Uso (PowerShell):
+ * Uso:
  *   $env:WALLET_ADDRESS = "EQ..."
  *   $env:WALLET_NETWORK = "testnet"
  *   $env:TON_API_KEY = "..."
  *   $env:WALLET_QUERY_ID = "1"
  *   $env:WALLET_CREATED_AT = "1700000000"
- *   npx blueprint run verifyTransaccion
+ *   npm run verify-payout
  */
 
-import { NetworkProvider } from '@ton/blueprint';
 import { verifyPayout, Network } from '../src';
 
-export async function run(_provider: NetworkProvider) {
+async function main() {
     const walletAddress = process.env.WALLET_ADDRESS;
     const network = (process.env.WALLET_NETWORK || 'testnet') as Network;
     const apiKey = process.env.TON_API_KEY;
@@ -41,3 +40,8 @@ export async function run(_provider: NetworkProvider) {
     if (result.exitCode !== undefined) console.log('  exitCode:      ', result.exitCode);
     if (result.failureReason) console.log('  failureReason: ', result.failureReason);
 }
+
+main().catch(err => {
+    console.error('Error verificando:', err);
+    process.exit(1);
+});
