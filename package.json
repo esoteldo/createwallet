@@ -16,6 +16,10 @@
         "blueprint:build": "blueprint build",
         "build": "tsc -p tsconfig.lib.json",
         "test": "jest --verbose",
+        "create-wallet": "ts-node scripts/createWallet.ts",
+        "create-stage5-wallets": "ts-node scripts/createStage5Wallets.ts",
+        "send-batch": "ts-node scripts/sendMultiTransfer.ts",
+        "verify-payout": "ts-node scripts/verifyTransaccion.ts",
         "release": "npm run build && blueprint pack && npm publish --access public"
     },
     "dependencies": {
